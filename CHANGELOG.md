@@ -10,6 +10,7 @@
 - sim prefix to tsjippy prefix
 - base namespace to TSJIPPY
 - PLUGINCONSTANT value
+- exclude .vscode from releases
 
 ### Fixed
 - pluginpath constant
