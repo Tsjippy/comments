@@ -2,6 +2,17 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+
+### Changed
+
+### Fixed
+
+### Updated
+
+## [10.0.2] - 2026-05-03
+
+
+### Added
 - trailing slash to pluginpath connstant
 - redirection to settings page on plugin activation
 
@@ -17,8 +28,6 @@
 
 ### Fixed
 - pluginpath constant
-
-### Updated
 
 ## [8.0.7] - 2025-10-25
 
