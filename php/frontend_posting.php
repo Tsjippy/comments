@@ -11,7 +11,7 @@ function afterPostContent($frontendcontend){
     $allowedPostTypes     = SETTINGS['posttypes'] ?? [];
 
     ?>
-    <div id="comments" class="property frontend-form <?php echo in_array($frontendcontend->postType, $allowedPostTypes) ? 'hidden' : ''; echo implode(' ', $allowedPostTypes);?>">
+    <div id="comments" class="property frontend-form <?php echo in_array($frontendcontend->postType, $allowedPostTypes) ? 'hidden' : ''; echo esc_attr(implode(' ', $allowedPostTypes));?>">
         <h4>Comments</h4>
         <label>
             <input type='checkbox' name='comments' value='allow' <?php echo comments_open($frontendcontend->postId) ? 'checked' : ''; ?>>
