@@ -1,17 +1,21 @@
 <?php
+
 namespace TSJIPPY\COMMENTS;
+
 use TSJIPPY;
 use TSJIPPY\ADMIN;
 
-if ( ! defined('ABSPATH')) {
+if (! defined('ABSPATH')) {
     exit;
 }
 
-class ApprovedCommentEmail extends ADMIN\MailSetting{
+class ApprovedCommentEmail extends ADMIN\MailSetting
+{
 
     public $commentData;
 
-    public function __construct($commentData) {
+    public function __construct($commentData)
+    {
         // call parent constructor
         parent::__construct('approved_comment', 'comments');
 
@@ -31,7 +35,7 @@ class ApprovedCommentEmail extends ADMIN\MailSetting{
         $postTitle              = get_the_title($postId);
         $authorId               = get_post_field('post_author', $postId);
         $author                 = get_userdata($authorId);
-        $replyLink              = get_permalink($postId). '#';
+        $replyLink              = get_permalink($postId) . '#';
         if (!empty($commentData['comment_ID'])) {
             $replyLink .= $commentData['comment_ID'];
         }

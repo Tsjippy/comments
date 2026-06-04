@@ -1,17 +1,21 @@
 <?php
+
 namespace TSJIPPY\COMMENTS;
+
 use TSJIPPY;
 use TSJIPPY\ADMIN;
 
-if ( ! defined('ABSPATH')) {
+if (! defined('ABSPATH')) {
     exit;
 }
 
-class CommentWarningEmail extends ADMIN\MailSetting{
+class CommentWarningEmail extends ADMIN\MailSetting
+{
 
     public $commentData;
 
-    public function __construct($commentData) {
+    public function __construct($commentData)
+    {
         // call parent constructor
         parent::__construct('unapproved_comment', 'comments');
 

@@ -1,13 +1,16 @@
 <?php
+
 namespace TSJIPPY\COMMENTS;
+
 use TSJIPPY;
 
-if ( ! defined('ABSPATH')) {
+if (! defined('ABSPATH')) {
     exit;
 }
 
 add_action('comment_post', __NAMESPACE__ . '\commentPost', 10, 3);
-function commentPost($commentID, $approved, $commentdata) {
+function commentPost($commentID, $approved, $commentdata)
+{
     $commentdata['commentID']   = $commentID;
 
     if ($approved) {
@@ -19,8 +22,8 @@ function commentPost($commentID, $approved, $commentdata) {
             $parentCommentAuthor    = get_userdata($parentComment->user_id);
 
             $to                     = $parentCommentAuthor->user_email;
-        // Send e-mail to the post author
-        }else{
+            // Send e-mail to the post author
+        } else {
             $email                  = new ApprovedCommentEmail($commentdata);
 
             $postId                 = $commentdata['comment_post_ID'];
@@ -28,12 +31,12 @@ function commentPost($commentID, $approved, $commentdata) {
             $author                 = get_userdata($authorId);
             $to                     = $author->user_email;
         }
-    // Send e-mail to content managers
-    }else{
+        // Send e-mail to content managers
+    } else {
         $to                     = '';
         $users                  = get_users(['role'    => 'editor']);
         foreach ($users as $user) {
-            $to .= $user->user_email. ', ';
+            $to .= $user->user_email . ', ';
         }
         $email                  = new CommentWarningEmail($commentdata);
     }
@@ -42,7 +45,6 @@ function commentPost($commentID, $approved, $commentdata) {
     $subject                = $email->subject;
     $message                = $email->message;
     wp_mail($to, $subject, $message);
-
 }
 
 /**
@@ -53,9 +55,10 @@ function commentPost($commentID, $approved, $commentdata) {
  * @param string $postType    Post type. Default is `post`.
  */
 add_filter('get_default_comment_status', __NAMESPACE__ . '\defaultStatus', 1, 2);
-function defaultStatus($status, $postType) {
+function defaultStatus($status, $postType)
+{
     $allowedPostTypes     = SETTINGS['posttypes'] ?? ['post'];
-    if ( in_array($postType, $allowedPostTypes)) {
+    if (in_array($postType, $allowedPostTypes)) {
         return 'open';
     }
 
