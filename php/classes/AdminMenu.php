@@ -3,39 +3,39 @@ namespace TSJIPPY\COMMENTS;
 use TSJIPPY;
 use TSJIPPY\ADMIN;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if ( ! defined('ABSPATH')) {
+    exit;
 }
 
 class AdminMenu extends ADMIN\SubAdminMenu{
 
     /**
      * AdminMenu constructor.
-     * 
+     *
      * @param array $settings The settings for the plugin
      * @param string $name The name of the plugin
      */
-    public function __construct($settings, $name){
+    public function __construct($settings, $name) {
         parent::__construct($settings, $name);
     }
 
-    public function settings($parent){
+    public function settings($parent) {
         TSJIPPY\addElement('label', $parent, [], "Which post types should have comments allowed by default?");
 
         TSJIPPY\addElement('br', $parent);
 
-        foreach(get_post_types() as $type){
+        foreach (get_post_types() as $type) {
             $attributes = [
                 'type'  => 'checkbox',
                 'name'  => 'posttypes[]',
                 'value' => $type
             ];
 
-            if(
-                !empty($this->settings['posttypes']) && 
-                is_array($this->settings['posttypes']) && 
+            if (
+                !empty($this->settings['posttypes']) &&
+                is_array($this->settings['posttypes']) &&
                 in_array($type, $this->settings['posttypes'])
-            ){
+           ) {
                 $attributes['checked'] = 'checked';
             }
 
@@ -46,16 +46,16 @@ class AdminMenu extends ADMIN\SubAdminMenu{
         }
 
         TSJIPPY\addElement('br', $parent);
-        
+
         return true;
     }
 
-    public function emails($parent){
+    public function emails($parent) {
         $tab      = 'approved-comment-email';
-        if(isset($_GET['second-tab'])){
+        if (isset($_GET['second-tab'])) {
             $tab  = sanitize_key($_GET['second-tab']);
         }
-        
+
         ob_start();
 
         ?>
@@ -80,7 +80,7 @@ class AdminMenu extends ADMIN\SubAdminMenu{
             ?>
         </div>
 
-        <div id="comment-warning-email" class="tabcontent <?php echo $tab != 'comment-warning-email' ? 'hidden' : '';?>">	
+        <div id="comment-warning-email" class="tabcontent <?php echo $tab != 'comment-warning-email' ? 'hidden' : '';?>">
             <h4>Define the e-mail content managers get when a comment needs approval</h4>
             <?php
             $email    = new CommentWarningEmail([]);
@@ -104,11 +104,11 @@ class AdminMenu extends ADMIN\SubAdminMenu{
         return true;
     }
 
-    public function data($parent){
+    public function data($parent) {
         return false;
     }
 
-    public function functions($parent){
+    public function functions($parent) {
         return false;
     }
 
