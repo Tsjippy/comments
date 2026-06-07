@@ -7,6 +7,7 @@
 ### Changed
 - comply to coding standards
 - code layout
+- small improvements
 
 ### Fixed
 - spacing problem
