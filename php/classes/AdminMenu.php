@@ -59,7 +59,7 @@ class AdminMenu extends ADMIN\SubAdminMenu
     {
         $tab      = 'approved-comment-email';
         if (isset($_GET['second-tab'])) {
-            $tab  = sanitize_key($_GET['second-tab']);
+            $tab  = sanitize_key(wp_unslash($_GET['second-tab']));
         }
 
         ob_start();

@@ -29,10 +29,7 @@ function afterPostContent($frontendcontend)
 add_action('tsjippy_after_post_save', __NAMESPACE__ . '\afterPostSave', 999, 2);
 function afterPostSave($post, $frontEndPost)
 {
-    if (
-        isset($_POST['comments']) &&        // There is a comment setting
-        $_POST['comments'] == 'allow'      // and the value is allow
-    ) {
+    if (($_POST['comments'] ?? '')  == 'allow') {
         // Only update if the current post is closed for comments
         if ($post->comment_status != "open") {
             wp_update_post(
