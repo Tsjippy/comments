@@ -8,6 +8,7 @@
 - comply to coding standards
 - code layout
 - small improvements
+- sanitize all posts and get vars
 
 ### Fixed
 - spacing problem
