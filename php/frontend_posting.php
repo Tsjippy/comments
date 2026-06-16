@@ -8,14 +8,18 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-add_action('tsjippy_frontend_post_after_content', __NAMESPACE__ . '\afterPostContent');
+add_action('tsjippy-frontend-post-after-content', __NAMESPACE__ . '\afterPostContent');
 function afterPostContent($frontendcontend)
 {
     $allowedPostTypes     = SETTINGS['posttypes'] ?? [];
 
 ?>
-    <div id="comments" class="property frontend-form <?php echo in_array($frontendcontend->postType, $allowedPostTypes) ? 'hidden' : '';
-                                                        echo esc_attr(implode(' ', $allowedPostTypes)); ?>">
+    <div 
+        id="comments" 
+        class="property frontend-form 
+        <?php echo in_array($frontendcontend->postType, $allowedPostTypes) ? 'hidden' : '';
+        echo esc_attr(implode(' ', $allowedPostTypes)); ?>"
+    >
         <h4>Comments</h4>
         <label>
             <input type='checkbox' name='comments' value='allow' <?php echo comments_open($frontendcontend->postId) ? 'checked' : ''; ?>>
@@ -26,7 +30,7 @@ function afterPostContent($frontendcontend)
 }
 
 // Allow comments
-add_action('tsjippy_after_post_save', __NAMESPACE__ . '\afterPostSave', 999, 2);
+add_action('tsjippy-after-post-save', __NAMESPACE__ . '\afterPostSave', 999, 2);
 function afterPostSave($post, $frontEndPost)
 {
     if (($_POST['comments'] ?? '')  == 'allow') {
