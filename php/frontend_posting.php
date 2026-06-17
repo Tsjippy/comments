@@ -8,7 +8,7 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-add_action('tsjippy-frontend-post-after-content', __NAMESPACE__ . '\afterPostContent');
+add_action('tsjippy-frontend-content-post-after-content', __NAMESPACE__ . '\afterPostContent');
 function afterPostContent($frontendcontend)
 {
     $allowedPostTypes     = SETTINGS['posttypes'] ?? [];
@@ -30,7 +30,7 @@ function afterPostContent($frontendcontend)
 }
 
 // Allow comments
-add_action('tsjippy-after-post-save', __NAMESPACE__ . '\afterPostSave', 999, 2);
+add_action('tsjippy-frontend-content-after-post-save', __NAMESPACE__ . '\afterPostSave', 999, 2);
 function afterPostSave($post, $frontEndPost)
 {
     if (($_POST['comments'] ?? '')  == 'allow') {
