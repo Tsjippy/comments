@@ -64,7 +64,7 @@ class AdminMenu extends ADMIN\SubAdminMenu
 
         ob_start();
 
-?>
+        ?>
         <div class="tablink-wrapper">
             <button type="button" class="tablink <?php echo $tab == 'approved-comment-email' ? 'active' : ''; ?>" id="show-approved-comment-email" data-target="approved-comment-email">
                 Approved comment e-mail
@@ -104,7 +104,7 @@ class AdminMenu extends ADMIN\SubAdminMenu
             ?>
         </div>
 
-<?php
+        <?php
         TSJIPPY\addRawHtml(ob_get_clean(), $parent, 'beforeEnd');
 
         return true;
