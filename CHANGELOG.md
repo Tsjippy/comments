@@ -6,6 +6,7 @@
 ### Changed
 
 ### Fixed
+- activation function
 
 ### Updated
 
