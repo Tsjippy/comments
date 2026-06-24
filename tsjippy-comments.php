@@ -35,3 +35,12 @@ define(__NAMESPACE__ . '\PLUGINPATH', __DIR__ . '/');
 define(__NAMESPACE__ . '\PLUGINVERSION', get_plugin_data(__FILE__, false, false)['Version']);
 define(__NAMESPACE__ . '\PLUGINSLUG', str_replace('tsjippy-', '', basename(__FILE__, '.php')));
 define(__NAMESPACE__ . '\SETTINGS', get_option('tsjippy_comments_settings', []));
+
+// run right before activation
+register_activation_hook(__FILE__, function () {
+    if(file_exists(__DIR__  . '/shared-functionality/loader.php')){
+        require_once(__DIR__  . '/shared-functionality/loader.php');
+    }
+
+    TSJIPPY\activate();
+});
