@@ -42,5 +42,5 @@ register_activation_hook(__FILE__, function () {
         require_once(__DIR__  . '/shared-functionality/loader.php');
     }
 
-    TSJIPPY\activate();
+    \TSJIPPY\activate();
 });
