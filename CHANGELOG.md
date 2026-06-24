@@ -6,9 +6,14 @@
 ### Changed
 
 ### Fixed
-- activation function
 
 ### Updated
+
+## [10.2.6] - 2026-06-24
+
+
+### Fixed
+- activation function
 
 ## [10.2.5] - 2026-06-24
 
