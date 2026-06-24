@@ -2,13 +2,18 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
-- activation hook
 
 ### Changed
 
 ### Fixed
 
 ### Updated
+
+## [10.2.5] - 2026-06-24
+
+
+### Added
+- activation hook
 
 ## [10.2.4] - 2026-06-24
 
