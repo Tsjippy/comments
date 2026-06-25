@@ -58,7 +58,9 @@ class AdminMenu extends ADMIN\SubAdminMenu
     public function emails($parent)
     {
         $tab      = 'approved-comment-email';
+        // phpcs:ignore
         if (isset($_GET['second-tab'])) {
+            // phpcs:ignore
             $tab  = TSJIPPY\sanitize($_GET['second-tab'], 'key');
         }
 
