@@ -32,11 +32,17 @@ function afterPostContent($frontendcontend)
     <?php
 }
 
-// Allow comments
-add_action('tsjippy-frontend-content-after-post-save', __NAMESPACE__ . '\afterPostSave', 999, 2);
-function afterPostSave($post, $frontEndPost)
+/**
+ * Allow comments
+ * 
+ * @param   \WP_Post    $post       The new or updated post
+ * @param   object      $object     FrontEndContent Instance
+ * @param   array       $request    The sanitized request data
+ */
+add_action('tsjippy-frontend-content-after-post-save', __NAMESPACE__ . '\afterPostSave', 999, 3);
+function afterPostSave($post, $frontEndPost, $request)
 {
-    if (($_POST['comments'] ?? '')  == 'allow') {
+    if (($request['comments'] ?? '')  == 'allow') {
         // Only update if the current post is closed for comments
         if ($post->comment_status != "open") {
             wp_update_post(
