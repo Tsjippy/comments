@@ -4,11 +4,19 @@
 ### Added
 
 ### Changed
-- wrapped front-end options in a collapsible
 
 ### Fixed
 
 ### Updated
+
+## [10.2.8] - 2026-06-25
+
+
+## [10.2.7] - 2026-06-25
+
+
+### Changed
+- wrapped front-end options in a collapsible
 
 ## [10.2.6] - 2026-06-24
 
