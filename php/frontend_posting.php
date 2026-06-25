@@ -8,7 +8,7 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-add_action('tsjippy-frontend-content-post-after-content', __NAMESPACE__ . '\afterPostContent');
+add_action('tsjippy-frontend-content-post-after-content', __NAMESPACE__ . '\afterPostContent', 20);
 function afterPostContent($frontendcontend)
 {
     $allowedPostTypes     = SETTINGS['posttypes'] ?? [];
