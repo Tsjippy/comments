@@ -4,11 +4,16 @@
 ### Added
 
 ### Changed
-- pass sanitized request to tsjippy-frontend-content-after-post-save
 
 ### Fixed
 
 ### Updated
+
+## [10.2.9] - 2026-06-25
+
+
+### Changed
+- pass sanitized request to tsjippy-frontend-content-after-post-save
 
 ## [10.2.8] - 2026-06-25
 
