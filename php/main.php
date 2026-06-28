@@ -57,8 +57,8 @@ function commentPost($commentID, $approved, $commentdata)
 add_filter('get_default_comment_status', __NAMESPACE__ . '\defaultStatus', 1, 2);
 function defaultStatus($status, $postType)
 {
-    $allowedPostTypes     = SETTINGS['posttypes'] ?? ['post'];
-    if (in_array($postType, $allowedPostTypes)) {
+    $allowedPostTypes     = SETTINGS['posttypes'] ?? ['post' => 1];
+    if (isset($allowedPostTypes[$postType])) {
         return 'open';
     }
 

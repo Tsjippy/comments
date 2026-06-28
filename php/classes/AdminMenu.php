@@ -29,18 +29,14 @@ class AdminMenu extends ADMIN\SubAdminMenu
 
         TSJIPPY\addElement('br', $parent);
 
-        foreach (get_post_types() as $type) {
+        foreach (get_post_types(['public' => true]) as $type) {
             $attributes = [
                 'type'  => 'checkbox',
-                'name'  => 'posttypes[]',
-                'value' => $type
+                'name'  => "posttypes[$type]",
+                'value' => 1
             ];
 
-            if (
-                !empty($this->settings['posttypes']) &&
-                is_array($this->settings['posttypes']) &&
-                in_array($type, $this->settings['posttypes'])
-            ) {
+            if ( isset($this->settings['posttypes'][$type]) ) {
                 $attributes['checked'] = 'checked';
             }
 

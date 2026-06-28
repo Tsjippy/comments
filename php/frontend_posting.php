@@ -17,7 +17,7 @@ function afterPostContent($frontendcontend)
     <div 
         id="comments" 
         class="property frontend-form expand-wrapper
-        <?php echo in_array($frontendcontend->postType, $allowedPostTypes) ? 'hidden' : '';
+        <?php if(isset($allowedPostTypes[$frontendcontend->postType])) echo 'hidden';
         echo esc_attr(implode(' ', $allowedPostTypes)); ?>"
     >
         <h4>
