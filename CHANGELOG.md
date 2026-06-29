@@ -4,11 +4,16 @@
 ### Added
 
 ### Changed
-- replaced in_array with isset
 
 ### Fixed
 
 ### Updated
+
+## [10.3.2] - 2026-06-29
+
+
+### Changed
+- replaced in_array with isset
 
 ## [10.3.1] - 2026-06-26
 
