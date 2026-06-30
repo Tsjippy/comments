@@ -7,6 +7,12 @@ E-mails can be sent to the author of the post or, in case of a reply, to the com
 
 This can be adjusted granular: comments can be enable on a per post type basis and can be disabled for specific posts. 
 
+== Screenshots ==
+1. Admin Settings
+2. E-mail Settings for when a Comment gets Approved
+3. E-mail Settings for when a Comment is Posted
+4. E-mail Settings for when a Comment receives a Reply
+
 == Issues ==
 Please file any issues on the wp forum or directly on Github: 
 * [comments](https://github.com/Tsjippy/comments/issues)

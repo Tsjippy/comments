@@ -60,43 +60,67 @@ class AdminMenu extends ADMIN\SubAdminMenu
             $tab  = TSJIPPY\sanitize($_GET['second-tab'], 'key');
         }
 
+        $fakeData   = [
+            'comment_post_ID'      => 1,
+            'comment_author'       => '',
+            'comment_author_email' => '',
+            'comment_author_url'   => '',
+            'comment_content'      => '',
+            'comment_type'         => '',
+            'comment_parent'       => 0,
+            'user_id'              => 1,
+            'comment_author_IP'    => '',
+            'comment_agent'        => '',
+            'comment_date'         => '',
+            'comment_date_gmt'     => '',
+            'comment_approved'     => 1,
+            'filtered'             => true,
+            'commentID'            => 1,
+        ];
+
         ob_start();
 
         ?>
         <div class="tablink-wrapper">
             <button type="button" class="tablink <?php echo $tab == 'approved-comment-email' ? 'active' : ''; ?>" id="show-approved-comment-email" data-target="approved-comment-email">
-                Approved comment e-mail
+                Approved e-mail
             </button>
             <button type="button" class="tablink <?php echo $tab == 'comment-warning-email' ? 'active' : ''; ?>" id="show-comment-warning-email" data-target="comment-warning-email">
-                Comment warning e-mail
+                Notification e-mail
             </button>
             <button type="button" class="tablink <?php echo $tab == 'comment-reply-email' ? 'active' : ''; ?>" id="show-comment-reply-email" data-target="comment-reply-email">
-                Comment reply e-mail
+                Reply e-mail
             </button>
         </div>
 
         <div id="approved-comment-email" class="tabcontent <?php echo $tab != 'approved-comment-email' ? 'hidden' : ''; ?>">
-            <h4>Define the e-mail people get when someone left a comment to a page they created.</h4>
+            <h4>
+                Define the e-mail people get when someone left a comment to a page they created.
+            </h4>
             <?php
-            $email    = new ApprovedCommentEmail([]);
+            $email    = new ApprovedCommentEmail($fakeData);
             $email->printPlaceholders();
             $email->printInputs();
             ?>
         </div>
 
         <div id="comment-warning-email" class="tabcontent <?php echo $tab != 'comment-warning-email' ? 'hidden' : ''; ?>">
-            <h4>Define the e-mail content managers get when a comment needs approval</h4>
+            <h4>
+                Define the e-mail content managers get when a comment needs approval
+            </h4>
             <?php
-            $email    = new CommentWarningEmail([]);
+            $email    = new CommentWarningEmail($fakeData);
             $email->printPlaceholders();
             $email->printInputs();
             ?>
         </div>
 
         <div id="comment-reply-email" class="tabcontent <?php echo $tab != 'comment-reply-email' ? 'hidden' : ''; ?>">
-            <h4>Define the e-mail people get when someone replies to their comment</h4>
+            <h4>
+                Define the e-mail people get when someone replies to their comment
+            </h4>
             <?php
-            $email    = new CommentReplyEmail([]);
+            $email    = new CommentReplyEmail($fakeData);
             $email->printPlaceholders();
             $email->printInputs();
             ?>

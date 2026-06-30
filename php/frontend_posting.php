@@ -22,7 +22,9 @@ function afterPostContent($frontendcontend)
     >
         <h4>
             Comments
-            <button class="button small expand" type='button'>&#9660;</button>
+            <button class="button small expand" type='button'>
+                &#9660;
+            </button>
         </h4>
         <label class="hidden expandable">
             <input type='checkbox' name='comments' value='allow' <?php echo comments_open($frontendcontend->postId) ? 'checked' : ''; ?>>

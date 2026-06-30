@@ -23,15 +23,15 @@ class ApprovedCommentEmail extends ADMIN\MailSetting
 
         $this->defaultMessage    = 'Hi %first_name%,<br><br>';
         $this->defaultMessage   .= "%comment_author% just left a comment on %post_title%.<br>";
-        $this->defaultMessage     .= 'This is what the comment sais:<br>';
-        $this->defaultMessage     .= '%comment_content%<br><br>';
-        $this->defaultMessage     .= "You can reply to this comment using <a href='%reply_link%'>this link</a> if you want. ";
+        $this->defaultMessage   .= 'This is what the comment sais:<br>';
+        $this->defaultMessage   .= '%comment_content%<br><br>';
+        $this->defaultMessage   .= "You can reply to this comment using <a href='%reply_link%'>this link</a> if you want. ";
 
         if (empty($commentData)) {
             return;
         }
 
-        $postId                 = !empty($commentData['comment_post_ID']) ? $commentData['comment_post_ID'] : null;
+        $postId                 = $commentData['comment_post_ID'];
         $postTitle              = get_the_title($postId);
         $authorId               = get_post_field('post_author', $postId);
         $author                 = get_userdata($authorId);
@@ -42,12 +42,8 @@ class ApprovedCommentEmail extends ADMIN\MailSetting
 
         $this->addUser($author);
 
-        if (!empty($commentData['comment_author_email'])) {
-            $this->replaceArray['%comment_author%']     = $commentData['comment_author'];
-        }
-
-        if (!empty($commentData['comment_content'])) {
-            $this->replaceArray['%comment_content%']    = $commentData['comment_content'];
+        foreach($commentData as $key => $value){
+            $this->replaceArray["%$key%"]     = $value;
         }
 
         if ($author) {

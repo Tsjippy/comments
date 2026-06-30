@@ -26,6 +26,9 @@ function commentPost($commentID, $approved, $commentdata)
         } else {
             $email                  = new ApprovedCommentEmail($commentdata);
 
+            /**
+             * Find target e-mail address
+             */
             $postId                 = $commentdata['comment_post_ID'];
             $authorId               = get_post_field('post_author', $postId);
             $author                 = get_userdata($authorId);
@@ -33,12 +36,13 @@ function commentPost($commentID, $approved, $commentdata)
         }
         // Send e-mail to content managers
     } else {
+        $email                  = new CommentWarningEmail($commentdata);
+        
         $to                     = '';
         $users                  = get_users(['role'    => 'editor']);
         foreach ($users as $user) {
             $to .= $user->user_email . ', ';
         }
-        $email                  = new CommentWarningEmail($commentdata);
     }
 
     $email->filterMail();
