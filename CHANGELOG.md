@@ -2,13 +2,18 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
-- assets
 
 ### Changed
 
 ### Fixed
 
 ### Updated
+
+## [11.0.1] - 2026-06-30
+
+
+### Added
+- assets
 
 ## [11.0.0] - 2026-06-30
 
