@@ -4,6 +4,7 @@
 ### Added
 
 ### Changed
+- Wordpress Plugin Repo Release
 
 ### Fixed
 
