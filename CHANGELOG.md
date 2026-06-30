@@ -4,11 +4,16 @@
 ### Added
 
 ### Changed
-- Wordpress Plugin Repo Release
 
 ### Fixed
 
 ### Updated
+
+## [11.0.0] - 2026-06-30
+
+
+### Changed
+- Wordpress Plugin Repo Release
 
 ## [10.3.3] - 2026-06-30
 
