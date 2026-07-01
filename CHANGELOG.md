@@ -11,37 +11,20 @@
 ### Updated
 
 ## [11.0.0] - 2026-06-30
-
-
-### Changed
 - Wordpress Plugin Repo Release
-
-## [10.3.3] - 2026-06-30
 
 
 ## [10.3.2] - 2026-06-29
 
-
 ### Changed
 - replaced in_array with isset
 
-## [10.3.1] - 2026-06-26
-
-
-## [10.3.0] - 2026-06-25
-
-
 ## [10.2.9] - 2026-06-25
-
 
 ### Changed
 - pass sanitized request to tsjippy-frontend-content-after-post-save
 
-## [10.2.8] - 2026-06-25
-
-
 ## [10.2.7] - 2026-06-25
-
 
 ### Changed
 - wrapped front-end options in a collapsible
@@ -54,52 +37,14 @@
 
 ## [10.2.5] - 2026-06-24
 
-
 ### Added
 - activation hook
-
-## [10.2.4] - 2026-06-24
-
-
-## [10.2.3] - 2026-06-23
-
-
-## [10.2.2] - 2026-06-23
-
-
-## [10.2.1] - 2026-06-23
-
-
-## [10.2.0] - 2026-06-23
-
-
-## [10.1.9] - 2026-06-21
-
-
-## [10.1.8] - 2026-06-20
-
-
-## [10.1.7] - 2026-06-19
-
-
-## [10.1.6] - 2026-06-18
-
 
 ### Changed
 - hook and filer name update
 - prefix all hooks with plugin name
 
-## [10.1.5] - 2026-06-15
-
-
-## [10.1.3] - 2026-06-15
-
-
-## [10.1.1] - 2026-06-13
-
-
 ## [10.1.0] - 2026-06-13
-
 
 ### Fixed
 - shared code loader
