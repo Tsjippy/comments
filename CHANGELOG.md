@@ -4,12 +4,19 @@
 ### Added
 
 ### Changed
+
+### Fixed
+
+### Updated
+
+## [11.0.3] - 2026-07-02
+
+
+### Changed
 - wrapped frontend posting options in rbody
 
 ### Fixed
 - allowed posttypes bug
-
-### Updated
 
 ## [11.0.2] - 2026-07-02
 
