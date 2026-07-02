@@ -9,6 +9,13 @@ if (! defined('ABSPATH')) {
 }
 
 add_action('comment_post', __NAMESPACE__ . '\commentPost', 10, 3);
+/**
+ * Send an email when a comment is posted
+ *
+ * @param int    $commentID  The comment ID
+ * @param int    $approved   Whether the comment is approved or not
+ * @param array  $commentdata The comment data
+ */
 function commentPost($commentID, $approved, $commentdata)
 {
     $commentdata['commentID']   = $commentID;
@@ -59,6 +66,13 @@ function commentPost($commentID, $approved, $commentdata)
  * @param string $postType    Post type. Default is `post`.
  */
 add_filter('get_default_comment_status', __NAMESPACE__ . '\defaultStatus', 1, 2);
+/**
+ * Filter whether comments are open on post save
+ *
+ * @param string $status       Default status for the given post type,
+ *                             either 'open' or 'closed' .
+ * @param string $postType    Post type. Default is `post`.
+ */
 function defaultStatus($status, $postType)
 {
     $allowedPostTypes     = SETTINGS['posttypes'] ?? ['post' => 1];

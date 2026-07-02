@@ -12,8 +12,13 @@ if (! defined('ABSPATH')) {
 class ApprovedCommentEmail extends ADMIN\MailSetting
 {
 
-    public $commentData;
+    public array $commentData;
 
+    /**
+     * ApprovedCommentEmail constructor.
+     *
+     * @param array $commentData The comment data
+     */
     public function __construct($commentData)
     {
         // call parent constructor

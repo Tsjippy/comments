@@ -12,8 +12,13 @@ if (! defined('ABSPATH')) {
 class CommentWarningEmail extends ADMIN\MailSetting
 {
 
-    public $commentData;
+    public array$commentData;
 
+    /**
+     * CommentWarningEmail constructor.
+     *
+     * @param array $commentData The comment data
+     */
     public function __construct($commentData)
     {
         // call parent constructor

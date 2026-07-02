@@ -23,6 +23,9 @@ class AdminMenu extends ADMIN\SubAdminMenu
         parent::__construct($settings, $name);
     }
 
+    /**
+     * Add the settings page to the admin menu
+     */
     public function settings($parent)
     {
         TSJIPPY\addElement('label', $parent, [], "Which post types should have comments allowed by default?");
@@ -51,6 +54,9 @@ class AdminMenu extends ADMIN\SubAdminMenu
         return true;
     }
 
+    /**
+     * Add the email settings page to the admin menu
+     */
     public function emails($parent)
     {
         $tab      = 'approved-comment-email';
@@ -132,11 +138,17 @@ class AdminMenu extends ADMIN\SubAdminMenu
         return true;
     }
 
+    /**
+     * Add the email settings page to the admin menu
+     */
     public function data($parent)
     {
         return false;
     }
 
+    /**
+     * Add the email settings page to the admin menu
+     */
     public function functions($parent)
     {
         return false;

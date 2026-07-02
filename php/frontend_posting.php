@@ -9,7 +9,12 @@ if (! defined('ABSPATH')) {
 }
 
 add_action('tsjippy-frontend-content-post-after-content', __NAMESPACE__ . '\afterPostContent', 20);
-function afterPostContent($frontendcontend)
+/**
+ * Add the comments section to the frontend post content
+ * 
+ * @param   object    $object    The FrontEndContent instance
+ */
+function afterPostContent($object)
 {
     $allowedPostTypes     = SETTINGS['posttypes'] ?? [];
 
@@ -17,7 +22,7 @@ function afterPostContent($frontendcontend)
     <div 
         id="comments" 
         class="property frontend-form expand-wrapper
-        <?php if(isset($allowedPostTypes[$frontendcontend->postType])) echo 'hidden';
+        <?php if(isset($allowedPostTypes[$object->postType])) echo 'hidden';
         echo esc_attr(implode(' ', $allowedPostTypes)); ?>"
     >
         <h4>
@@ -27,7 +32,7 @@ function afterPostContent($frontendcontend)
             </button>
         </h4>
         <label class="hidden expandable">
-            <input type='checkbox' name='comments' value='allow' <?php echo comments_open($frontendcontend->postId) ? 'checked' : ''; ?>>
+            <input type='checkbox' name='comments' value='allow' <?php echo comments_open($object->postId) ? 'checked' : ''; ?>>
             Allow comments
         </label>
     </div>
@@ -42,7 +47,14 @@ function afterPostContent($frontendcontend)
  * @param   array       $request    The sanitized request data
  */
 add_action('tsjippy-frontend-content-after-post-save', __NAMESPACE__ . '\afterPostSave', 999, 3);
-function afterPostSave($post, $frontEndPost, $request)
+/**
+ * Allow comments
+ * 
+ * @param   \WP_Post    $post       The new or updated post
+ * @param   object      $object     FrontEndContent Instance
+ * @param   array       $request    The sanitized request data
+ */
+function afterPostSave($post, $object, $request)
 {
     if (($request['comments'] ?? '')  == 'allow') {
         // Only update if the current post is closed for comments
@@ -56,7 +68,7 @@ function afterPostSave($post, $frontEndPost, $request)
                 false
             );
         }
-    } elseif ($frontEndPost->update && $post->comment_status == "open") {
+    } elseif ($object->update && $post->comment_status == "open") {
         wp_update_post(
             array(
                 'ID'                => $post->ID,
