@@ -18,25 +18,33 @@ function afterPostContent($object)
 {
     $allowedPostTypes     = SETTINGS['posttypes'] ?? [];
 
-    ?>
-    <div 
-        id="comments" 
-        class="property frontend-form expand-wrapper
-        <?php if(isset($allowedPostTypes[$object->postType])) echo 'hidden';
-        echo esc_attr(implode(' ', $allowedPostTypes)); ?>"
-    >
-        <h4>
-            Comments
-            <button class="button small expand" type='button'>
-                &#9660;
-            </button>
-        </h4>
-        <label class="hidden expandable">
-            <input type='checkbox' name='comments' value='allow' <?php echo comments_open($object->postId) ? 'checked' : ''; ?>>
-            Allow comments
-        </label>
-    </div>
-    <?php
+?>
+    <tbody
+        id="comments"
+        class="property frontend-form expand-wrapper 
+        <?php if (isset($allowedPostTypes[$object->postType])) echo 'hidden';
+        echo esc_attr(implode(' ', $allowedPostTypes)); ?>">
+        <tr>
+            <td>
+                <h4>
+                    Comments
+                </h4>
+            </td>
+            <td>
+                <button class="button small expand" type='button'>
+                    &#9660;
+                </button>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="hidden expandable" collspan=2>
+                <input type='checkbox' name='comments' value='allow' <?php echo comments_open($object->postId) ? 'checked' : ''; ?>>
+                Allow comments
+            </td>
+        </tr>
+    </tbody>
+<?php
 }
 
 /**
