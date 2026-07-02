@@ -7,6 +7,7 @@
 - wrapped frontend posting options in rbody
 
 ### Fixed
+- allowed posttypes bug
 
 ### Updated
 
