@@ -23,7 +23,7 @@ function afterPostContent($object)
         id="comments"
         class="property frontend-form expand-wrapper 
         <?php if (isset($allowedPostTypes[$object->postType])) echo 'hidden';
-        echo esc_attr(implode(' ', $allowedPostTypes)); ?>">
+        echo esc_attr(implode(' ', array_keys($allowedPostTypes))); ?>">
         <tr>
             <td>
                 <h4>
@@ -39,7 +39,7 @@ function afterPostContent($object)
 
         <tr>
             <td class="hidden expandable" collspan=2>
-                <input type='checkbox' name='comments' value='allow' <?php echo comments_open($object->postId) ? 'checked' : ''; ?>>
+                <input type='checkbox' name='comments' value='allow' <?php if(comments_open($object->postId)) echo 'checked'; ?>>
                 Allow comments
             </td>
         </tr>
