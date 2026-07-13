@@ -47,13 +47,6 @@ function afterPostContent($object)
 <?php
 }
 
-/**
- * Allow comments
- * 
- * @param   \WP_Post    $post       The new or updated post
- * @param   object      $object     FrontEndContent Instance
- * @param   array       $request    The sanitized request data
- */
 add_action('tsjippy-frontend-content-after-post-save', __NAMESPACE__ . '\afterPostSave', 999, 3);
 /**
  * Allow comments
