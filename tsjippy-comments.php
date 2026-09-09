@@ -5,14 +5,14 @@ namespace TSJIPPY\COMMENTS;
 /**
  * Plugin Name:          Tsjippy Comments
  * Description:          This plugin allows you to define the e-mails sent when someone adds a comment to the website.<br>You can also define on which post types comments are allowed<br>You can turn on or off comments also on a per page level.
- * Version:              11.2.6
+ * Version:              11.2.7
  * Author:               Ewald Harmsen
  * AuthorURI:            harmseninnigeria.nl
  * Requires at least:    6.3
  * Requires PHP:         8.3
- * Tested up to:         7.0
+ * Tested up to:         7.1
  * Plugin URI:           https://github.com/Tsjippy/comments/
- * Tested:               7.0
+ * Tested:               7.1
  * TextDomain:           tsjippy
  * Requires Plugins:    
  * License: GPLv2 or later
